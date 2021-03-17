@@ -1,10 +1,27 @@
+# It gives us super user premission
 sudo: required
 language: generic
+# We need to tell thats we need docker preinstalled
 services:
   - docker
 
+# Steps before install - need to build the docker image first
 before_install:
   - docker build -t eladezra/docker-react -f Dockerfile.dev .
 
+# Execute a script after the image is ready.
 script:
   - docker run -e CI=true eladezra/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  # You can find the rigion in the URL that AWS provided you
+  region: "us-east-2"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  # The EBS has created for us a S3 bucket go - and take his name
+  bucket_name: "elasticbeanstalk-us-east-2-424899809968"
+  # the same name as the app
+  bucket_path: "docker-react"
+  on:
+    branch: master
