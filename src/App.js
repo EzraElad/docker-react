@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          ELADDD
+          I Was changed on the feature branch
         </p>
         <p>
           Elad Ezra
