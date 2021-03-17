@@ -17,12 +17,12 @@ deploy:
   provider: elasticbeanstalk
   # You can find the rigion in the URL that AWS provided you
   region: "us-east-2"
-  app: "docker-react"
-  env: "Dockerreact-env"
+  app: "docker-react-2"
+  env: "Dockerreact2-env"
   # The EBS has created for us a S3 bucket go - and take his name
   bucket_name: "elasticbeanstalk-us-east-2-424899809968"
   # the same name as the app
-  bucket_path: "docker-react"
+  bucket_path: "docker-react-2"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
